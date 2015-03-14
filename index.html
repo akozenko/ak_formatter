@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="datepicker.css"/>
+</head>
+<body>
+
+  <input type="text" class="number" />
+  <span>Only number</span>
+
+  <br/>
+
+  <input type="text" class="phone" />
+  <span>Phone</span>
+
+  <br/>
+
+  <input type="text" class="amount" />
+  <span>amount</span>
+
+  <br/>
+
+  <input type="text" class="card" />
+  <span>custom formatter for card number</span>
+
+  <br/>
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="formatter.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('.number').formatter('number');
+      $('.phone').formatter('phone');
+      $('.amount').formatter('amount');
+
+      $('.card').formatter('number', {
+        mask          : '9999 9999 9999 9999',
+        placeholder   : '_',
+        completed     : null,
+        definitions   : { '9': '[0-9]'}
+      });
+    });
+  </script>
+
+</body>
+
+</html>
