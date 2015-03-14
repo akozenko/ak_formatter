@@ -33,6 +33,28 @@
         <section id="main_content">
           <h3>
 <a id="formatter" class="anchor" href="#formatter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Formatter.</h3>
+
+        
+          <input type="text" class="number" />
+          <span>Only number</span>
+        
+          <br/>
+        
+          <input type="text" class="phone" />
+          <span>Phone</span>
+        
+          <br/>
+        
+          <input type="text" class="amount" />
+          <span>amount</span>
+        
+          <br/>
+        
+          <input type="text" class="card" />
+          <span>custom formatter for card number</span>
+        
+          <br/>
+
         </section>
 
         <footer>
@@ -43,5 +65,23 @@
         
       </div>
     </div>
+    
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="https://raw.githubusercontent.com/akozenko/ak_formatter/master/formatter.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('.number').formatter('number');
+      $('.phone').formatter('phone');
+      $('.amount').formatter('amount');
+
+      $('.card').formatter('number', {
+        mask          : '9999 9999 9999 9999',
+        placeholder   : '_',
+        completed     : null,
+        definitions   : { '9': '[0-9]'}
+      });
+    });
+  </script>
+
   </body>
 </html>
